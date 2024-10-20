@@ -31,7 +31,7 @@ public class YearGroup {
      * Returns true if a given string is a valid year group.
      */
     public static boolean isValidYearGroup(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test != null && test.matches(VALIDATION_REGEX);
     }
 
     @Override

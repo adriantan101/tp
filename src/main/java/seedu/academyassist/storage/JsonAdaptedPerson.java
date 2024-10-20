@@ -127,6 +127,9 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Ic.MESSAGE_CONSTRAINTS);
         }
         final Ic modelIc = new Ic(ic);
+        if (yearGroup == null) {
+            throw new IllegalValueException("Year group cannot be null.");
+        }
         if (!YearGroup.isValidYearGroup(yearGroup)) {
             throw new IllegalValueException(YearGroup.MESSAGE_CONSTRAINTS);
         }
