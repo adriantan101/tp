@@ -26,6 +26,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
@@ -62,15 +64,17 @@ Each of the four main components (also shown in the diagram above),
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
-<img src="images/ComponentManagers.png" width="300" />
+<img src="images/ComponentManagers.png" width="400" />
 
 The sections below give more details of each component.
+
+<div style="page-break-after: always;"></div>
 
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/AY2425S1-CS2103T-W11-3/tp/blob/master/src/main/java/seedu/academyassist/ui/Ui.java).
 
-![Structure of the UI Component](images/UiClassDiagram.png)
+<img src="images/UiClassDiagram.png" width="750"/>
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
@@ -111,7 +115,7 @@ How the `Logic` component works:
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
-<img src="images/ParserClasses.png" width="600"/>
+<img src="images/ParserClasses.png" width="750"/>
 
 How the parsing works:
 * When called upon to parse a user command, the `AcademyAssistParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AcademyAssistParser` returns back as a `Command` object.
@@ -125,10 +129,12 @@ Output after parsing:
 
 <img src="images/FilterActivityDiagram.png" width="600"/>
 
+<div style="page-break-after: always;"></div>
+
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2425S1-CS2103T-W11-3/tp/blob/master/src/main/java/seedu/academyassist/model/Model.java)
 
-<img src="images/ModelClassDiagram.png" width="450" />
+<img src="images/ModelClassDiagram.png" width="750" />
 
 
 The `Model` component,
@@ -274,7 +280,6 @@ _{more aspects and alternatives to be added}_
 
 
 
-
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
@@ -340,6 +345,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. System informs user that the student has been successfully deleted
 
    Use case ends
+
+<div style="page-break-after: always;"></div>
 
    **Extensions**
 
@@ -440,6 +447,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC6 - Clearing the app**
 
 **MSS**
@@ -487,6 +496,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends
 
+<div style="page-break-after: always;"></div>
+
    **Extensions**
 
 * 1a. User tries to sort by an invalid field
@@ -531,6 +542,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC10 - Filter**
 
@@ -577,6 +590,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC12 - Adding subjects to students**
 
 **MSS**
@@ -619,6 +634,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Data Requirements
 1.  Should be able to hold up to 500 students including personal details, contact information, and emergency contacts, without a significant performance drop.
 2.  All data should be persistent, meaning it must be saved even after the application is closed, ensuring no data loss between sessions.
+
+<div style="page-break-after: always;"></div>
 
 #### Environment Requirements
 3.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
@@ -736,7 +753,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: A student with ID S00001 exists in the system.
    
-    2. Test case: `edit s00001 p\91234567 a\18 Tampines Road`<br>
+    2. Test case: `edit S00001 p\91234567 a\18 Tampines Road`<br>
         Expected: Student with ID S00001 is updated with phone number "91234567" and address "18 Tampines Road". 
         Success message is shown in the message box.
    
@@ -744,16 +761,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: Student with ID S00999 does not exist in the system.
    
-   2. Test case: `edit s00999 p\84754243 a\25 Orchard Road`<br>
+   2. Test case: `edit S00999 p\84754243 a\25 Orchard Road`<br>
        Expected: Error message indicating that no student is found with the provided student ID. 
    
 3. Editing a student's NRIC to match an existing student's NRIC.
 
    1. Prerequisites: 
        * Student with ID S00001 exists in the system.
-       * Another student with NRIC S2684225J exists in the system.
+       * Another student with NRIC S2684225J exists in the system.<br>
       
-   2. Test case: `edit s00001 i\S2684225J`<br>
+   2. Test case: `edit S00001 i\S2684225J`<br>
        Expected: Error message indicating that another student with the same NRIC already exists in the system.
 
 ### Adding subject(s) to a student
@@ -769,7 +786,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: Student with ID s00001 exists in the system.
    
-    2. Test case: `addsubject S00001 s\History s\Chinese`
+    2. Test case: `addsubject S00001 s\History s\Chinese`<br>
         Expected: Student with ID S00001 is added to subjects History and Chinese. The existing subjects remained unchanged.
 
 ### Deleting a student
@@ -810,7 +827,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: 
        * Multiple students exist in the system.  
-       * A student named Sam Tan exists in the system.
+       * A student named Sam Tan exists in the system.<br>
       
    2. Test case: `find sam`<br>
        Expected: A list of students, including Sam Tan, is shown.
@@ -819,7 +836,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites:
         * Multiple students exist in the system.
-        * A student named Sam Tan exists in the system.
+        * A student named Sam Tan exists in the system.<br>
        
     2. Test case: `find sa`<br>
        Expected: A list of students, including Sam Tan, is shown.
@@ -848,7 +865,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: 
        * Multiple students exist in the system.
-       * At least one student from year group 3 exists.
+       * At least one student from year group 3 exists.<br>
       
    2. Test case: `filter yg\3`<br>
        Expected: A list of students in year group 3 is shown.
@@ -891,13 +908,13 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: Storage file exits (default location: ./data/academyassist.json)
    
-   2. Test case: Edit the file into an invalid JSON format (e.g., deleting a `:`)
+   2. Test case: Edit the file into an invalid JSON format (e.g., deleting a `:`)<br>
        Expected: AcademyAssist erases all existing data and start with a blank data file.
    
-   3. Test case: Duplicate a student's entries
+   3. Test case: Duplicate a student's entries<br>
       Expected: AcademyAssist erases all existing data and start with a blank data file.
    
-   4. Test case: Set `idGeneratedCount` to a value greater than 99999
+   4. Test case: Set `idGeneratedCount` to a value greater than 99999<br>
       Expected: AcademyAssist erases all existing data and start with a blank data file.
 
 --------------------------------------------------------------------------------------------------------------------
